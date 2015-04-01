@@ -18,31 +18,31 @@
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses new_portfolio_theme_for_cblackmon_com_header_style()
- * @uses new_portfolio_theme_for_cblackmon_com_admin_header_style()
- * @uses new_portfolio_theme_for_cblackmon_com_admin_header_image()
+ * @uses new_portfolio_header_style()
+ * @uses new_portfolio_admin_header_style()
+ * @uses new_portfolio_admin_header_image()
  */
-function new_portfolio_theme_for_cblackmon_com_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'new_portfolio_theme_for_cblackmon_com_custom_header_args', array(
+function new_portfolio_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'new_portfolio_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'new_portfolio_theme_for_cblackmon_com_header_style',
-		'admin-head-callback'    => 'new_portfolio_theme_for_cblackmon_com_admin_header_style',
-		'admin-preview-callback' => 'new_portfolio_theme_for_cblackmon_com_admin_header_image',
+		'wp-head-callback'       => 'new_portfolio_header_style',
+		'admin-head-callback'    => 'new_portfolio_admin_header_style',
+		'admin-preview-callback' => 'new_portfolio_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'new_portfolio_theme_for_cblackmon_com_custom_header_setup' );
+add_action( 'after_setup_theme', 'new_portfolio_custom_header_setup' );
 
-if ( ! function_exists( 'new_portfolio_theme_for_cblackmon_com_header_style' ) ) :
+if ( ! function_exists( 'new_portfolio_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see new_portfolio_theme_for_cblackmon_com_custom_header_setup().
+ * @see new_portfolio_custom_header_setup().
  */
-function new_portfolio_theme_for_cblackmon_com_header_style() {
+function new_portfolio_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function new_portfolio_theme_for_cblackmon_com_header_style() {
 	</style>
 	<?php
 }
-endif; // new_portfolio_theme_for_cblackmon_com_header_style
+endif; // new_portfolio_header_style
 
-if ( ! function_exists( 'new_portfolio_theme_for_cblackmon_com_admin_header_style' ) ) :
+if ( ! function_exists( 'new_portfolio_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see new_portfolio_theme_for_cblackmon_com_custom_header_setup().
+ * @see new_portfolio_custom_header_setup().
  */
-function new_portfolio_theme_for_cblackmon_com_admin_header_style() {
+function new_portfolio_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function new_portfolio_theme_for_cblackmon_com_admin_header_style() {
 	</style>
 <?php
 }
-endif; // new_portfolio_theme_for_cblackmon_com_admin_header_style
+endif; // new_portfolio_admin_header_style
 
-if ( ! function_exists( 'new_portfolio_theme_for_cblackmon_com_admin_header_image' ) ) :
+if ( ! function_exists( 'new_portfolio_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see new_portfolio_theme_for_cblackmon_com_custom_header_setup().
+ * @see new_portfolio_custom_header_setup().
  */
-function new_portfolio_theme_for_cblackmon_com_admin_header_image() {
+function new_portfolio_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function new_portfolio_theme_for_cblackmon_com_admin_header_image() {
 	</div>
 <?php
 }
-endif; // new_portfolio_theme_for_cblackmon_com_admin_header_image
+endif; // new_portfolio_admin_header_image

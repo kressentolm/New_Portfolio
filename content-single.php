@@ -9,7 +9,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php new_portfolio_theme_for_cblackmon_com_posted_on(); ?>
+			<?php new_portfolio_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -24,6 +24,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php new_portfolio_theme_for_cblackmon_com_entry_footer(); ?>
+		<?php new_portfolio_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
