@@ -1149,8 +1149,15 @@ body {
 /*--------------------------------------------------------------
 6.1 Layout and Structure
 --------------------------------------------------------------*/
+.site-header {
+  background: #000000;
+}
+
 .site-branding {
   text-align: center;
+  /*glow for webkit*/
+  /*glow for mozilla*/
+  /*glow*/
 }
 .site-branding .site-title {
   font-family: "Megrim", cursive;
@@ -1159,11 +1166,14 @@ body {
           transition: all 200ms cubic-bezier(0, 0, 1, 1);
 }
 .site-branding .site-title a {
-  color: #1a1717;
+  color: #ffffff;
+  -webkit-animation: none;
+  animation: none;
 }
 .site-branding .site-title a:hover {
-  color: #af1111;
   text-decoration: none;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
 }
 @media screen and (min-width: 200px) {
   .site-branding .site-title {
@@ -1183,7 +1193,7 @@ body {
     font-size: 4.6875rem;
     width: 7.8em;
     padding: 0.3em 0 0.3em;
-    margin: 0.5em auto;
+    margin: 0 auto .5em;
   }
   .site-branding .site-title:hover {
     -webkit-transform: translateY(5px);
@@ -1205,13 +1215,29 @@ body {
 .site-branding .site-title a, .site-branding .site-title a:visited {
   line-height: 1;
 }
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #af1111, 0 0 70px #af1111, 0 0 80px #af1111, 0 0 100px #af1111, 0 0 150px #af1111;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #af1111, 0 0 35px #af1111, 0 0 40px #af1111, 0 0 50px #af1111, 0 0 75px #af1111;
+  }
+}
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #af1111, 0 0 70px #af1111, 0 0 80px #af1111, 0 0 100px #af1111, 0 0 150px #af1111;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #af1111, 0 0 35px #af1111, 0 0 40px #af1111, 0 0 50px #af1111, 0 0 75px #af1111;
+  }
+}
 .site-branding .site-description {
   padding: 25px 0;
   font-size: 20px;
   font-size: 1.25rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  color: #1a1717;
+  color: #ffffff;
 }
 @media screen and (min-width: 200px) {
   .site-branding .site-description {
@@ -1567,7 +1593,6 @@ body {
 }
 
 #site-navigation {
-  border-top: solid 5px #f3f3f3;
   border-bottom: solid 5px #f3f3f3;
 }
 
