@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: About Page
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * The template for displaying Personal Projects Page.
  *
  * @package New_Portfolio
  */
@@ -13,11 +10,15 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main page-about" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
+
+				<?php
+					// No comments loaded for this page.
+				?>
 
 			<?php endwhile; // end of the loop. ?>
 
